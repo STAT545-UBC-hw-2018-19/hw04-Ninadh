@@ -2,7 +2,7 @@
 title: "hw04_Ninadh"
 author: "Ninadh"
 date: "October 15, 2018"
-output: html_document
+output: github_document
 ---
 ```{r}
 library(gapminder)
@@ -50,8 +50,8 @@ gapminder %>%
 gapminder %>%
   group_by(continent, year) %>%
   summarise(mean = mean(lifeExp), median = median(lifeExp), minimum = min(lifeExp), maximum = max(lifeExp)) %>%
-  ggplot(aes(continent, mean)) +
-  geom_bar()
+  ggplot(aes(x = continent, y = mean)) +
+  geom_bar(stat = "identity")
 ```
 
 The mean life expectancy of Oceania > Europe > Americas > Asia > Africa over time. The life expectancy of Africa is interesting because it plateaued from late 80s to early 2000.
@@ -93,4 +93,4 @@ left_join(gapminder, new_data) %>%
 ```{r}
 left_join(gapminder, new_data) %>%
   ggplot(aes(continent, n_country)) +
-  geom_bar()
+  geom_bar(stat = "identity")
